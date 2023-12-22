@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/media.css">
+    <title>Процесс создания десктопных приложений с помощью WPF и С#</title>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+                <h1>C# MasterClass</h1>
+            </a>                    
+        <nav>       
+            <ul class="topul">               
+                <a href="oglav.html">
+                    <li class="indexLiTop">Оглавление</li>
+                </a>
+                <a href="aboutus.html">
+                  <li class="indexLiTop">О нас</li>  
+                </a>
+                <a href="profile.html">
+                    <li class="indexLiTop">Профиль</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 class="indexH2" id="A1">
+             Что такое WPF?
+        </h2>
+            <p class="indexP"> 
+            WPF или Windows Presentation Foundation — это платформа пользовательского интерфейса (пользовательского интерфейса), которая создает клиентские приложения для настольных компьютеров. Платформа разработки WPF поддерживает широкий набор компонентов для разработки приложений, включая модель приложения, ресурсы, элементы управления, графику, макет, привязки данных, документы и безопасность.
+            </p>
+            <p class="indexP">
+            WPF является частью платформы .NET, и если ранее вы создавали приложения в .NET с помощью ASP.NET или Windows Forms, то общий процесс программирования вам уже знаком. WPF использует XAML расширяемого языка разметки приложений для предоставления декларативной модели программирования приложений. Дополнительные сведения см. в обзоре WPF .NET.
+            </p>
+        <h2 class="indexH2" id="A2">
+            Необходимые компоненты
+        </h2>
+            <p class="indexP">
+            Для выполнения шагов, описанных в этом учебнике, вам понадобится Visual Studio.
+            </p>
+        <h2 class="indexH2" id="A3">
+            Создание проекта   
+        </h2>
+            <p class="indexP">
+            При создании приложения в Visual Studio необходимо сначала создать проект. Для целей этого учебника создайте проект Windows Presentation Foundation.
+                <br/>
+                    <ol>
+                        <li class="indexLi"> 
+                            Откройте Visual Studio.
+                        </li>
+                        <li class="indexLi">
+                            На начальном экране выберите Создать проект.
+                        </li>
+                            <img class="phooto" src="/Img/vibor.png" alt="Не удалось загрузить фото"/>
+                        <li class="indexLi">
+                            На экране Создание проекта выполните поиск по запросу "WPF", выберите в результатах Приложение WPF и нажмите кнопку Далее.
+                        </li>
+                            <img class="phooto" src="/Img/pho3.png" alt="Не удалось загрузить фото"/>
+                        <li class="indexLi">
+                            На следующем экране присвойте проекту имя HelloWPFApp и щелкните Далее.
+                        </li>
+                            <img class="phooto" src="/Img/pho4.png" alt="Не удалось загрузить фото"/>
+                        <li class="indexLi">
+                            В окне дополнительных сведений убедитесь, что для целевой платформы выбран .NET 8.0. Затем нажмите Создать.
+                        </li>
+                            <img class="phooto" src="/Img/pho5.png" alt="Не удалось загрузить фото"/>
+                    </ol>  
+            </p>
+            <p class="indexP">
+                Visual Studio создает решение и проект HelloWPFApp, а в обозревателе решений выводятся различные файлы. Конструктор WPF отображает представление кода и представление XAML MainWindow.xaml в представлении с разделением. Сдвигая разделитель, можно делать любое из представлений больше или меньше. Можно выбрать для просмотра только визуальное представление или только представление XAML.
+            </p>
+                            <img class="phooto" src="/Img/pho6.png" alt="Не удалось загрузить фото"/>
+            <p class="indexP">
+                После создания проекта его можно настраивать. Для этого выберите Окно свойств в меню Представление или нажмите клавишу F4. Затем можно отображать и изменять параметры элементов проекта, элементов управления и других элементов в приложении.
+            </p>
+                            <img class="phooto" src="/Img/pho7.png" alt="Не удалось загрузить фото"/>
+        <h2 class="indexH2" id="A4">
+            Создание приложения WPF
+        </h2>
+            <p class="indexP">
+                Первым шагом в создании нового приложения является запуск Visual Studio и создание приложения на основе шаблона. Ниже представлен предварительный просмотр приложения, которое будет создано в данном руководстве.          
+            </p>
+                            <img class="phooto" src="/Img/pho8.png" alt="Не удалось загрузить фото"/>
+        <h2 class="indexH2" id="A5">
+            Важные элементы среды Visual Studio
+        </h2>
+            <p class="indexP">
+                Поддержка WPF в Visual Studio состоит из пяти важных компонентов, с которыми вы будете взаимодействовать при создании приложения.
+                            <img class="phooto" src="/Img/pho9.png" alt="Не удалось загрузить фото"/>
+                    <br/>
+                        <ol>
+                            <li class="indexLi">
+                                Обозреватель решений
+                                    <p>
+                                        Все файлы проекта, код, окна и ресурсы отображаются в этой области.
+                                    </p>
+                            </li>
+                            <li class="indexLi">
+                                Свойства
+                                    <p>
+                                        На этой панели отображаются параметры свойств, которые можно настроить в зависимости от выбранного элемента. Например, если выбрать элемент в Обозревателе решений, отобразятся параметры свойств, связанные с файлом. Если выбрать объект в конструкторе, отобразятся параметры этого элемента.
+                                    </p>
+                            </li>
+                            <li class="indexLi">
+                                Панель инструментов
+                                    <p>
+                                        Панель элементов содержит все элементы управления, которые можно добавить на форму. Чтобы добавить элемент управления на текущую форму, дважды щелкните элемент управления или перетащите его.
+                                    </p>
+                            </li>
+                            <li class="indexLi">
+                                Конструктор XAML
+                                    <p>
+                                        Это конструктор для документа XAML. Он является интерактивным, и на него можно перетаскивать объекты из панели элементов. Выбирая и перемещая элементы в конструкторе, можно визуально создавать пользовательский интерфейс для приложения.                                    
+                                    </p>
+                                    <p>
+                                        Если конструктор и редактор отображаются, изменения в одном из них сразу отражаются в другом. При выборе элементов в конструкторе в области Свойства отображаются свойства и атрибуты этого объекта.
+                                    </p>
+                            </li>
+                            <li class="indexLi">
+                                Редактор кода XAML
+                                    <p>
+                                        Это редактор кода XAML для документа XAML. Редактор кода XAML — это способ создания пользовательского интерфейса вручную без конструктора. Конструктор может вычислять значения свойств элемента управления при его добавлении в конструктор. В редакторе кода XAML вам предоставляется гораздо больше контроля.                                    </p>
+                                    <p>
+                                        Если конструктор и редактор отображаются, изменения в одном из них сразу отражаются в другом. При переходе по текстовым курсорам в редакторе кода в области Свойства отображаются свойства и атрибуты этого объекта.                                    </p>
+                            </li>
+                        </ol>
+            </p>
+        <h2 class="indexH2" id="A6">
+            Изучение кода XAML
+        </h2>    
+        <p class="indexP">
+            После создания проекта в редакторе кода XAML отображается минимальный объем кода XAML для отображения окна. Если редактор не открыт, дважды щелкните элемент MainWindow.xaml в обозревателе решений. Должен отобразиться код XAML, аналогичный следующему примеру:
+            <p class="indexP">
+              <code>
+                &lt;Window x:Class="Names.MainWindow"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:local="clr-namespace:Names"
+                    mc:Ignorable="d"
+                    Title="MainWindow" Height="450" Width="800"&gt;
+                    <p class="indexP">
+                        <code>
+                            &lt;Grid&gt;
+                        </code>
+                    </p>
+                    <p class="indexP">
+                       &lt;/Grid&gt; 
+                    </p>
+                    <p class="indexP">
+                       <code >
+                        &lt;/Window&gt;
+                       </code> 
+                    </p>                    
+            </code>  
+            </p>
+        </P>
+        <p class="indexP">
+            Давайте развернем этот код XAML, чтобы лучше понять его. XAML — это просто XML, который может обрабатываться компиляторами, используемыми в WPF. Он описывает пользовательский интерфейс WPF и взаимодействует с кодом .NET. Для понимания XAML следует, как минимум, знать основы XML.
+        </p>            
+        <p class="indexP">
+            Корень документа <Window> представляет тип объекта, описываемого файлом XAML. Объявлено восемь атрибутов, и обычно они относятся к трем категориям:
+                <br/>
+                    <ul>
+                        <li class="indexLi">
+                            Пространства имен
+                            <p class="indexP">
+                                Пространство имен XML предоставляет структуру языку XML, которая определяет содержимое, которое можно объявить в файле.
+                            </p>
+                            <p class="indexP">
+                                Основной атрибут xmlns импортирует пространство имен XML для всего файла, а в данном случае сопоставляется с типами, объявленными в WPF. Другие пространства имен XML объявляют префикс и импортируют другие типы и объекты для XAML-файла. Например, пространство имен xmlns:local объявляет префикс local и выполняет сопоставление объектов, объявленных в проекте, с теми, которые объявлены в пространстве имен кода Names.
+                            </p>
+                        </li>
+                        <li class="indexLi">
+                            Атрибут x:Class
+                            <p class="indexP">
+                                Этот атрибут сопоставляет <Window> с типом, определенным в коде: файл MainWindow.xaml.cs или MainWindow.xaml.vb, который является классом Names.MainWindow.
+                            </p>
+                        </li>
+                        <li class="indexLi">
+                            Атрибут Title
+                            <p class="indexP">
+                                Любой обычный атрибут, объявленный в объекте XAML, задает свойство этого объекта. В этом случае атрибут Title задает свойство Window.Title.
+                            </p>
+                        </li>
+                    </ul>
+        </p>  
+        <h2 class="indexH2" id="A7">
+        Изменение окна
+        </h2>        
+        <p class="indexP">
+        Сначала выполним проект и просмотрим выходные данные по умолчанию. Появится окно с заголовком MainWindow без элементов управления:
+        <img class="phooto" src="/Img/pho10.png" alt="Не удалось загрузить фото"/>
+        </p>
+            <p class="indexP">
+                <code>
+                    &lt;Window x:Class="Names.MainWindow"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:local="clr-namespace:Names"
+                        mc:Ignorable="d"
+                        <code class="chastCode"> 
+                            Title="MainWindow" Height="180" Width="260"&gt;
+                        </code>             
+                    <p class="indexP">
+                        <code>
+                      &lt;Grid&gt;
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        &lt;/Grid&gt; 
+                    </p>
+                    <p class="indexP">
+                        <code >
+                            &lt;/Window&gt;
+                        </code> 
+                    </p>                    
+                </code>  
+            </p>
+        <h2 class="indexH2" id="A8">
+            Подготовка макета
+        </h2>
+            <p class="indexP">
+                В WPF имеется система макетов с широкими возможностями с множеством различных элементов управления макетом. Элементы управления макета помогают размещать дочерние элементы управления и изменять их размеры, а также могут даже это делать автоматически. Элемент управления макета по умолчанию, предоставляемый вам в этом XAML, — это элемент управления <code>&lt;Grid&gt;</code>.
+            </p>
+            <p class="indexP">
+                Элемент управления <code>&lt;Grid&gt;</code> позволяет определить строки и столбцы, почти как в таблице, и размещать элементы управления внутри границ определенной комбинации строк и столбцов. Можно добавить любое количество дочерних элементов управления или других элементов управления макетом, имеющихся в <code>&lt;Grid&gt;</code>. Например, другой элемент управления <code>&lt;Grid&gt;</code> можно поместить в определенную комбинацию строк и столбцов, а для этого нового <code>&lt;Grid&gt;</code> затем можно задать больше строк и столбцов и собственные дочерние элементы.
+            </p>
+            <p class="indexP">
+                Элемент управления <code>&lt;Grid&gt;</code> определяет строки и столбцы, в которых будут находиться элементы управления. В сетке всегда объявлена одна строка и столбец, то есть сетка по умолчанию является отдельной ячейкой. Это не обеспечивает большую гибкость при размещении элементов управления.
+            </p>
+            <p class="indexP">
+                Прежде чем добавлять новые строки и столбцы, добавьте новый атрибут в элемент <code>&lt;Grid&gt;</code> : <code>Margin&#61;&#8220;10&#8221;</code>. Будет вставлена сетка, благодаря чему окно будет выглядеть немного лучше.
+            </p>
+            <p class="indexP">
+                Затем определите две строки и два столбца, разделив сетку на четыре ячейки:
+                <code>
+                    <p class="indexP">
+                        <code>
+                            &lt;Grid Margin="10"&gt;&lt;/Grid&gt;
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;Grid.RowDefinitions&gt;                           
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;RowDefinition Height="*" /&gt;
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;RowDefinition Height="*" /&gt;
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;/Grid.RowDefinitions&gt;
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;Grid.RowDefinitions&gt;
+                        </code>
+                    </p>   
+                    <p class="indexP">
+                        <code>
+                           &lt;RowDefinition Height="*" /&gt; 
+                        </code>                      
+                    </P>    
+                    <p class="indexP">
+                        <code>
+                            &lt;RowDefinition Height="*" /&gt;
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                           &lt;/Grid.RowDefinitions&gt; 
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;Grid.ColumnDefinitions&gt; 
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;ColumnDefinition Width="*" /&gt; 
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;ColumnDefinition Width="*" /&gt; 
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;/Grid.ColumnDefinitions&gt; 
+                        </code>
+                    </p>
+                    <p class="indexP">
+                        <code>
+                            &lt;/Grid&gt;  
+                        </code>
+                    </p>                  
+                </code>
+            </p>
+            <p class="indexP">
+                Выберите сетку в редакторе кода XAML или в конструкторе XAML. Вы увидите, что в конструкторе XAML отображается каждая строка и столбец:
+                <img class="phooto" src="/Img/pho11.png" alt="Не удалось загрузить фото"/>
+            </p>
+        <h2 class="indexH2" id="A9">
+            Добавление первого элемента управления
+        </h2>
+        <p class="indexP">
+            После создания сетки можно приступать к добавлению в нее элементов управления. Начните с элемента управления Label. Создайте новый элемент &lt;Label&gt внутри элемента &lt;Grid&gt после определений строк и столбцов, а затем присвойте ему строковое значение Names:
+            <code>
+                <p class="indexP">
+                    <code>
+                        &lt;Grid Margin="10"&gt;&lt;/Grid&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;Grid.RowDefinitions&gt;                           
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;RowDefinition Height="*" /&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;RowDefinition Height="*" /&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;/Grid.RowDefinitions&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;Grid.RowDefinitions&gt;
+                    </code>
+                </p>   
+                <p class="indexP">
+                    <code>
+                       &lt;RowDefinition Height="*" /&gt; 
+                    </code>                      
+                </P>    
+                <p class="indexP">
+                    <code>
+                        &lt;RowDefinition Height="*" /&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                       &lt;/Grid.RowDefinitions&gt; 
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;Grid.ColumnDefinitions&gt; 
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;ColumnDefinition Width="*" /&gt; 
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;ColumnDefinition Width="*" /&gt; 
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;/Grid.ColumnDefinitions&gt; 
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code class="chastCode">
+                        &lt;Label&gt;Names&lt;Label&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;/Grid&gt;  
+                    </code>
+                </p>                  
+            </code>
+        </p>
+        <p class="indexP">
+            &lt;Label&gt;Names&lt;Label&gt; определяет содержимое Names. Некоторым элементам управления известно, как управлять содержимым, а другим — нет. Содержимое элемента управления сопоставляется со свойством Content. При задании содержимого с помощью синтаксиса атрибутов XAML можно использовать следующий формат: &lt;Label Content="Names" /&gt;. Оба способа служат для выполнения одного и того же действия — отображение текста Names в качестве содержимого метки.
+        </p>
+        <p class="indexP">
+            У нас есть проблема, поскольку метка занимает половину окна, так как она была автоматически назначена первой строке и столбцу сетки. Для первой строки нам не нужно много пространства, поскольку мы будем использовать эту строку только для метки. Измените атрибут Height первого параметра &lt;RowDefinitio&gt; с * на Auto. Значение Auto автоматически изменяет размер строки сетки под размер ее содержимого (в данном случае это элемент управления Label).
+            <p class="indexP">
+                <code>
+                    &lt;Grid.RowDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code class="chastCode">
+                    &lt;Grid.RowDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;RowDefinition Height="*" /&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;/Grid.RowDefinitions&gt;
+                </code>
+            </p>
+        </p>
+        <p class="indexP">
+            Обратите внимание, что теперь в конструкторе отображается метка, занимающая небольшую часть доступной высоты. Теперь имеется больше места для следующей строки. Большинство элементов управления определяют значения высоты и ширины, которые они должны занимать. Например, элемент управления Label имеет такое значение высоты, которое позволяет его прочитать.
+            <img class="phooto" src="/Img/pho12.png" alt="Не удалось загрузить фото"/>
+        </p>
+    <h2 class="indexH2" id="A10">
+        Размещение элементов управления
+    </h2>
+        <p class="indexP">
+            Давайте поговорим о размещении элементов управления. Метка, созданная в разделе выше, автоматически помещается в строку 0 и столбец 0 сетки. Нумерация строк и столбцов начинается с 0 и увеличивается на 1 для каждой новой строки или столбца. Элементу управления ничего не известно о сетке, и элемент управления не определяет свойства для управления своим размещением в сетке. Элемент управления можно даже поместить в другой элемент управления макета с собственными набором правил, которые определяют способ размещения элементов управления.
+        </p>
+        <p class="indexP">
+            Как указать элементу управления, что ему следует использовать другую строку или столбец, если элемент управления не имеет сведений о сетке? В этом случае на помощь придут вложенные свойства! Сетка использует эффективную систему свойств, предоставляемую WPF. Сетка определяет новые свойства, которые дочерние элементы управления могут объявлять и использовать. Свойства фактически не существуют в самом элементе управления, они вкладываются сеткой при добавлении элемента управления в сетку.
+        </p>
+        <p class="indexP">
+            Сетка определяет два свойства для определения размещения строк и столбцов дочернего элемента управления: Grid.Row и Grid.Column. Если эти свойства опущены в элементе управления, предполагается, что они имеют значения по умолчанию 0, поэтому элемент управления помещается в строку 0 и столбец 0 сетки. Попробуйте изменить расположение элемента управления <Label>, присвоив атрибуту Grid.Column значение 1:
+                <p class="indexP">
+                    <code>
+                        &lt;Label Grid.Column="1"&gt;Names&lt;/Label&gt;
+                    </code>
+                </p>
+        </p>
+        <p class="indexP">
+            Обратите внимание, что метка теперь переместилась во второй столбец. Вложенные свойства Grid.Row и Grid.Column можно использовать для размещения последующих элементов управления, которые мы создадим. Но на этом этапе следует вернуть метку в строку 0.
+        </p>
+    <h2 class="indexH2" id="A11">
+        Создание поля со списком имен
+    </h2>
+        <p class="indexP">
+            Теперь, когда сетка имеет правильный размер и создана метка, добавьте элемент управления "Список" в строку под меткой. Список будет находиться в строке 1 и столбце 0. Присвоим этому элементу управления имя lstNames. После присвоения имени элементу управления на него можно ссылаться в коде. Имя присваивается элементу управления с помощью атрибута x:Name.
+            <p class="indexP">
+                <code>
+                    &lt;Grid Margin="10"&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;Grid.RowDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;RowDefinition Height="Auto" /&gt;
+                </code>
+            </p>   
+            <p class="indexP">
+                <code>
+                    &lt;RowDefinition Height="*" /&gt;
+                </code>
+            </p> 
+            <p class="indexP">
+                <code>
+                    &lt;/Grid.RowDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;Grid.ColumnDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;ColumnDefinition Width="*" /&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;ColumnDefinition Width="*" /&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;/Grid.ColumnDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;Label&gt;Names&lt;/Label&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code class="chastCode">
+                    &lt;ListBox Grid.Row="1" x:Name="lstNames" /&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;/Grid&gt;
+                </code>
+            </p>
+        </p>
+    <h2 class="indexH2" id="A12">
+        Добавление оставшихся элементов управления
+    </h2>
+        <p class="indexP">
+            Последние два элемента управления, которые предстоит добавить, — это текстовое поле и кнопка, которые пользователь будет использовать для ввода имени, добавляемого в список. Однако вместо того, чтобы пытаться создать больше строк и столбцов для сетки, эти элементы управления будут размещены в элементе управления <StackPanel>.
+        </p>
+        <p class="indexP">
+            Панель стека отличается от сетки тем, как в ней размещаются элементы управления. В сетке для указания того, где должны располагаться элементы управления, вы используете свойства Grid.Row и Grid.Column, тогда как в панели стека это выполняется автоматически: сначала размещается первый элемент управления, затем после него следующий элемент управления, и так до тех пор, пока не будут размещены все элементы управления. Элементы управления размещаются в "стек" один под другим.
+        </p>
+        <p class="indexP">
+            Создайте элемент управления &lt;StackPanel&gt; после списка и вставьте его в строку 1 и столбец 1 сетки. Добавьте еще один атрибут с именем Margin и значением 5,0,0,0:
+            <p class="indexP">
+                <code>
+                    &lt;Grid.RowDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;RowDefinition Height="Auto" /&gt;
+                </code>
+            </p>   
+            <p class="indexP">
+                <code>
+                    &lt;RowDefinition Height="*" /&gt;
+                </code>
+            </p> 
+            <p class="indexP">
+                <code>
+                    &lt;/Grid.RowDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;Grid.ColumnDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;ColumnDefinition Width="*" /&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;ColumnDefinition Width="*" /&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;/Grid.ColumnDefinitions&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;Label&gt;Names&lt;/Label&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;ListBox Grid.Row="1" x:Name="lstNames" /&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code class="chastCode">
+                    &lt;StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0"&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code class="chastCode">
+                    &lt;/StackPanel&gt;
+                </code>
+            </p>
+        </p>
+        <p class="indexP">
+            Атрибут Margin ранее уже использовался в сетке, однако теперь мы поместим только одно значение, 10. Мы использовали значение 5,0,0,0 в панели стека. Поле является типом Thickness и может интерпретировать оба значения. Толщина определяет пространство вокруг каждой стороны прямоугольника, слева, сверху, справа, снизу, соответственно. Если значение поля является одним значением, оно используется для всех четырех сторон.
+        </p>
+        <p class="indexP">
+            Затем создайте &lt;TextBox&gt; и элемент управления &lt;Button&gt; в &lt;StackPanel&gt;.
+            <p class="indexP">
+                <code>
+                    &lt;StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0"&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;TextBox x:Name="txtName" /&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;Button x:Name="btnAdd" Margin="0,5,0,0"&gt;Add Name&lt;/Button&gt;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &lt;/StackPanel&gt;
+                </code>
+            </p>
+        </p>
+        <p class="indexP">
+            Макет окна готов. Однако в наше приложение следует добавить логику, чтобы оно работало. Далее необходимо подключить события элемента управления к коду, чтобы приложение выполняло действия.
+        </p>
+    <h2 class="indexH2" id="A13">
+        Добавление кода для события Click
+    </h2>
+        <p class="indexP">
+            Созданная нами кнопка &lt;Button&gt; имеет событие Click, возникающее, когда пользователь нажимает кнопку. Можно подписаться на это событие и добавить код, который будет добавлять имя в список. Как и при задании свойства элемента управления путем добавления атрибута XAML, можно использовать атрибут XAML для подписки на событие. Задайте для атрибута Click значение ButtonAddName_Click.
+            <p class="indexP">
+                <p class="indexP">
+                    <code>
+                        &lt;StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0"&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;TextBox x:Name="txtName" /&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code class="chastCode">
+                        &lt;Button x:Name="btnAdd" Margin="0,5,0,0" Click="ButtonAddName_Click"&gt;Add Name&lt;/Button&gt;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &lt;/StackPanel&gt;
+                    </code>
+                </p>
+            </p>
+        </p>
+        <p class="indexP">
+            Теперь необходимо создать код обработчика. Щелкните правой кнопкой мыши ButtonAddName_Click и выберите Перейдите к определению. При этом в коде будет создан метод, соответствующий введенному имени обработчика.
+            <p class="indexP">
+                <code>
+                    private void ButtonAddName_Click(object sender, RoutedEventArgs e)
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &#123;
+                </code>
+            </p>
+            <p class="indexP">
+                <code>
+                    &#125;
+                </code>
+            </p>
+        </p>
+        <p class="indexP">
+            Затем добавьте следующий код для выполнения следующих трех шагов:
+            <br/>
+                <ol>
+                    <li class="indexLi">
+                        Проверка того, что в текстовом поле содержится имя.
+                    </li>
+                    <li class="indexLi">
+                        Проверка того, что имя, указанное в текстовом поле, еще не добавлено.
+                    </li>
+                    <li class="indexLi">
+                        Добавление имени в список.
+                    </li>
+                </ol>
+                <p class="indexP">
+                    <code>
+                        private void ButtonAddName_Click(object sender, RoutedEventArgs e)
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &#123;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &#123;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        lstNames.Items.Add(txtName.Text);
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        txtName.Clear();
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &#125;
+                    </code>
+                </p>
+                <p class="indexP">
+                    <code>
+                        &#125;
+                    </code>
+                </p>
+        </p>
+    <h2 class="indexH2" id="A14">
+        Выполнить приложение
+    </h2>
+        <p class="indexP">
+            Теперь, когда у нас есть код события, можно запустить приложение, нажав клавишу F5 или выбрав пункт меню Отладка>Начать отладку. Отобразится окно, и вы можете ввести имя в текстовое поле, а затем добавить его, нажав кнопку.
+            <img class="phooto" src="/Img/pho13.png" alt="Не удалось загрузить фото"/>
+        </p>
+    <h2 class="indexH2" id="A15">
+        Заключение
+    </h2>
+        <p class="indexP">
+            В результате описаных действий мы получили работающее WPF приложение с запрограммированными кнопкками на C#.
+        </p>
+    </main>
+</body>
+</html>

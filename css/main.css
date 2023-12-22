@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    background: #6d14b8;
+    display: flex;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+code {
+    height: 500px;
+    width: 1000px;
+}
+.chastCode{
+    background-color: lightyellow;
+    border-radius: 5px;
+}
+.topul {
+    color: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    list-style-type: none;
+    padding-left: 30px;
+    margin-left: 30px;
+}
+
+li {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 22px;
+}
+
+li:hover {
+    background: white;
+    color: #000000;
+}
+
+a {
+    color: white !important;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: left;
+    margin-left: 30px;
+    padding-top: 30px;
+    color: white;
+}
+
+body {
+    background-color: #686868;
+}
+
+form.form-example {
+    display: table;
+    margin-inline-start: 25px;
+    margin-block-start: 15px;
+}
+
+div.form-example {
+    display: table-row;
+    color: white;
+    font-size: 20px;
+}
+
+label, input {
+    display: table-cell;
+    margin-bottom: 30px;
+}
+
+label {
+    padding-right: 10px;
+}
+.button{
+    background-color: white;
+    color: #000000;
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+}
+.mainabout{
+    color: white;
+    font-size: 25px;
+    margin-inline-start: 25px;
+    margin-block-start: 15px;
+}
+
+.indexH2{
+    color: white;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.indexP{
+    font-size: 20px;
+    width: 60%;
+    margin-left: 5px;
+}
+.indexLi{
+    margin-left: 35px;
+    color: black;
+    font-size: 20px;
+}
+.phooto{
+    margin-top: 5px;
+    margin-left: 50px;
+}
