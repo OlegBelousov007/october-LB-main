@@ -1,0 +1,31 @@
+@media screen  and (max-width: 768px){
+    .phooto{
+        margin-top: 5px;
+        margin-left: 50px;
+        margin-right: 50px;
+        max-width: 90%;
+    }
+    .indexP{
+        font-size: 20px;
+        width: 95%;
+        margin-left: 5px;
+    }
+}
+@media screen  and (max-width: 430px){
+    .phooto{
+        margin-top: 5px;
+        margin-left: 50px;
+        margin-right: 50px;
+        max-width: 90%;
+    }
+    .indexP{
+        font-size: 20px;
+        width: 95%;
+        margin-left: 5px;
+    }
+    li a{
+        display: block;
+        width: 60px;
+    }
+}
+

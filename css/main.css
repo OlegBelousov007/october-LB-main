@@ -1,19 +1,22 @@
-* {
-    padding: 0;
+*{
     margin: 0;
+    padding: 0;
 }
-
 header {
-    height: 100px;
+    
     width: 100%;
     background: #6d14b8;
     display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 code {
@@ -30,8 +33,6 @@ code {
     justify-content: end;
     align-items: center;
     list-style-type: none;
-    padding-left: 30px;
-    margin-left: 30px;
 }
 
 li {
@@ -42,6 +43,7 @@ li {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 22px;
+    float: left;
 }
 
 li:hover {
@@ -57,7 +59,7 @@ a {
 h1 {
     text-align: left;
     margin-left: 30px;
-    padding-top: 30px;
+    padding-top: 10px;
     color: white;
 }
 
@@ -106,11 +108,6 @@ label {
     margin-top: 10px;
     margin-left: 20px;
 }
-.indexP{
-    font-size: 20px;
-    width: 60%;
-    margin-left: 5px;
-}
 .indexLi{
     margin-left: 35px;
     color: black;
@@ -119,4 +116,11 @@ label {
 .phooto{
     margin-top: 5px;
     margin-left: 50px;
+    margin-right: 5px;
+    max-width: 90%;
+}
+.indexP{
+    font-size: 20px;
+    width: 100%;
+    margin-left: 5px;
 }

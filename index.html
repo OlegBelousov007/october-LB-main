@@ -13,16 +13,22 @@
                 <h1>C# MasterClass</h1>
             </a>                    
         <nav>       
-            <ul class="topul">               
-                <a href="oglav.html">
-                    <li class="indexLiTop">Оглавление</li>
-                </a>
-                <a href="aboutus.html">
-                  <li class="indexLiTop">О нас</li>  
-                </a>
-                <a href="profile.html">
-                    <li class="indexLiTop">Профиль</li>
-                </a>
+            <ul class="topul">  
+                <li class="indexLiTop">
+                    <a href="oglav.html">
+                        Оглавление
+                    </a>
+                </li>
+                <li class="indexLiTop">
+                    <a href="oglav.html">
+                        О нас
+                    </a>
+                </li>
+                <li class="indexLiTop">
+                    <a href="oglav.html">
+                        Профиль
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -134,7 +140,7 @@
         </h2>    
         <p class="indexP">
             После создания проекта в редакторе кода XAML отображается минимальный объем кода XAML для отображения окна. Если редактор не открыт, дважды щелкните элемент MainWindow.xaml в обозревателе решений. Должен отобразиться код XAML, аналогичный следующему примеру:
-            <p class="indexP">
+            <!--<p class="indexP">
               <code>
                 &lt;Window x:Class="Names.MainWindow"
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -158,7 +164,7 @@
                        </code> 
                     </p>                    
             </code>  
-            </p>
+            </p>-->
         </P>
         <p class="indexP">
             Давайте развернем этот код XAML, чтобы лучше понять его. XAML — это просто XML, который может обрабатываться компиляторами, используемыми в WPF. Он описывает пользовательский интерфейс WPF и взаимодействует с кодом .NET. Для понимания XAML следует, как минимум, знать основы XML.
@@ -690,28 +696,28 @@
                 </p>
                 <p class="indexP">
                     <code>
-                        if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
+                        &nbsp; if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
                     </code>
                 </p>
                 <p class="indexP">
                     <code>
-                        &#123;
+                        &nbsp; &#123;
                     </code>
                 </p>
                 <p class="indexP">
                     <code>
-                        lstNames.Items.Add(txtName.Text);
+                        &nbsp; &nbsp; lstNames.Items.Add(txtName.Text);
                     </code>
                 </p>
                 <p class="indexP">
                     <code>
-                        txtName.Clear();
+                        &nbsp; &nbsp; txtName.Clear();
                     </code>
                 </p>
                 <p class="indexP">
                     <code>
-                        &#125;
-                    </code>
+                        &nbsp; &#125;
+                    </cod1e>
                 </p>
                 <p class="indexP">
                     <code>
@@ -732,6 +738,8 @@
         <p class="indexP">
             В результате описаных действий мы получили работающее WPF приложение с запрограммированными кнопкками на C#.
         </p>
+    <br/>
+        <br/>
     </main>
 </body>
 </html>
