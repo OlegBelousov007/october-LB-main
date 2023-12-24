@@ -13,15 +13,12 @@ header {
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
 }
 
 code {
     height: 500px;
-    width: 1000px;
+    width: 100%;
 }
 .chastCode{
     background-color: lightyellow;
@@ -29,10 +26,21 @@ code {
 }
 .topul {
     color: white;
-    display: flex;
-    justify-content: end;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     list-style-type: none;
+}
+.indexLiTop {
+    display: inline;
+    float: left;
+   }
+   .indexLiTop a {
+     text-align: center;  
+     text-decoration: none;
+   }
+   .indexLiTop a:hover {
+     color: black;
 }
 
 li {
